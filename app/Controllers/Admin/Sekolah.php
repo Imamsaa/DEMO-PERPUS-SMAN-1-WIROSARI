@@ -97,11 +97,11 @@ class Sekolah extends BaseController
         
         
         if ($logo->isvalid() && !$logo->hasMoved()) {
-            $logo->move('admin/img/',$name);
+            $logo->move('public/admin/img/',$name);
         }
 
         if ($background->isvalid() && !$background->hasMoved()) {
-            $background->move('img/',$bname);
+            $background->move('public/img/',$bname);
         }
 
         if($this->sekolahModel->where('id',$sekolah['id'])->set($sekolahbaru)->update() == true )
@@ -114,13 +114,13 @@ class Sekolah extends BaseController
             if ($logo->getError() == 4 ) {
             
             }else{
-                unlink('admin/img/'.$sekolah['logo']);
+                unlink('public/admin/img/'.$sekolah['logo']);
             }
 
             if ($background->getError() == 4 ) {
             
             }else{
-                unlink('img/'.$sekolah['background']);
+                unlink('public/img/'.$sekolah['background']);
             }
             return redirect()->to(base_url('pustakawan/sekolah'));
         }else{

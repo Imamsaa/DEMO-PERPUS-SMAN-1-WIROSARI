@@ -122,7 +122,7 @@ class Siswa extends BaseController
         $siswa = $this->request->getvar();
 
         if ($foto->isvalid() && !$foto->hasMoved()) {
-            $foto->move('admin/img/siswa/',$name);
+            $foto->move('public/admin/img/siswa/',$name);
         }
 
         $barcodeImage = $generator->getBarcode($siswa['nis'], $generator::TYPE_CODE_128);
@@ -235,9 +235,9 @@ class Siswa extends BaseController
         }
 
         if ($foto->isvalid() && !$foto->hasMoved()) {
-            $foto->move('admin/img/siswa',$name);
+            $foto->move('public/admin/img/siswa',$name);
             if ($cek['foto'] != 'siswa_default.jpg') {
-                unlink('admin/img/siswa/'.$cek['foto']);
+                unlink('public/admin/img/siswa/'.$cek['foto']);
             }
         }
         if ($this->siswaModel->where('nis',$siswa['nis'])->set($setsiswa)->update() == true) 
@@ -272,7 +272,7 @@ class Siswa extends BaseController
         $nama = $this->siswaModel->select('foto')->where('nis',$nis)->first('foto');
         if ($this->siswaModel->where('nis',$nis)->delete() == true ) {
             if($nama['foto'] != 'siswa_default.jpg'){
-                unlink('admin/img/siswa/'.$nama['foto']);
+                unlink('public/admin/img/siswa/'.$nama['foto']);
             }
             session()->setFlashdata('pojokatas',[
                 'status'    => 'success',

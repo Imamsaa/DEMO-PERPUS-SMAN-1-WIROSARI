@@ -100,7 +100,7 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td class="text-center"><img width="100" class="img-thumbnail" src="<?= base_url('admin/img/buku/'.$peminjam['sampul']); ?>" alt="COVER BUKU"></td>
+                        <td class="text-center"><img width="100" class="img-thumbnail" src="<?= base_url('public/admin/img/buku/'.$peminjam['sampul']); ?>" alt="COVER BUKU"></td>
                         <td>
                           <b>Judul :</b> <br>
                           <?= $peminjam['judul_buku']; ?><br>
@@ -112,7 +112,7 @@
                         <th colspan="2" class="text-center">DATA SISWA</th>
                       </tr>
                       <tr>
-                        <td class="text-center"><img width="100" class="img-thumbnail" src="<?= base_url('admin/img/siswa/'.$peminjam['foto']); ?>" alt="FOTO SISWA"></td>
+                        <td class="text-center"><img width="100" class="img-thumbnail" src="<?= base_url('public/admin/img/siswa/'.$peminjam['foto']); ?>" alt="FOTO SISWA"></td>
                         <td>
                           <b>Nama : </b> <br>
                           <?= $peminjam['nama_siswa']; ?><br>

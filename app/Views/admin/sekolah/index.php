@@ -41,7 +41,7 @@
                 <div class="card-body">
                   <div class="row mb-2">
                     <div class="col-md-3 my-2 col-sm-12">
-                      <img src="<?= base_url('admin/img/'.$sekolah['logo']); ?>" alt="Logo Sekolah" class="img-thumbnail">
+                      <img src="<?= base_url('public/admin/img/'.$sekolah['logo']); ?>" alt="Logo Sekolah" class="img-thumbnail">
                     </div>
                     <div class="col-md-9 col-sm-12">
                       <div class="form-group">
@@ -76,7 +76,7 @@
                   </div>
                   <div class="row mb-2">
                     <div class="col-md-3 my-2 col-sm-12">
-                      <img src="<?= base_url('img/'.$sekolah['background']); ?>" alt="Logo Sekolah" class="img-thumbnail">
+                      <img src="<?= base_url('public/img/'.$sekolah['background']); ?>" alt="Logo Sekolah" class="img-thumbnail">
                     </div>
                     <div class="col-md-9 col-sm-12">
                   <div class="form-group">

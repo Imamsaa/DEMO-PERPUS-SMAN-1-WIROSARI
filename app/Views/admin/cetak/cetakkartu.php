@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title; ?></title>
-    <link rel="stylesheet" href="<?= base_url('dist/bootstrap5/css/bootstrap.min.css'); ?>">
-    <link rel="shortcut icon" href="<?= base_url('admin/img/'.$sekolah['logo']); ?>" type="image/x-icon">
+    <link rel="stylesheet" href="<?= base_url('public/dist/bootstrap5/css/bootstrap.min.css'); ?>">
+    <link rel="shortcut icon" href="<?= base_url('public/admin/img/'.$sekolah['logo']); ?>" type="image/x-icon">
     <!-- Google Font: Source Sans Pro -->
     <style>
     .kartu{
@@ -43,7 +43,7 @@
             <div class="kartu row mx-1">
                 <table class="table my-0 table-borderless">
                     <tr>
-                        <th><img class="img-thumbnail" src="/admin/img/<?= $sekolah['logo']; ?>" alt="Logo Sekolah"></th>
+                        <th><img class="img-thumbnail" src="<?= base_url('public/admin/img/'.$sekolah['logo']); ?>" alt="Logo Sekolah"></th>
                         <th>
                             <h6 class="my-0 text-center">KARTU ANGGOTA PERPUSTAKAAN <?= $perpus['nama_perpus']; ?></h6>
                             <p class="sekolah my-0 text-center"><?= $sekolah['nama_sekolah']; ?></p>
@@ -53,7 +53,7 @@
                 <hr class="my-1">
                 <table class="table my-0 table-sm table-borderless">
                     <tr>
-                        <td rowspan="3" ><img class="img-siswa" src="/admin/img/siswa/<?= $c['foto']; ?>" alt=""></td>
+                        <td rowspan="3" ><img class="img-siswa" src="<?= base_url('public/admin/img/siswa/'.$c['foto']); ?>" alt=""></td>
                         <td>NIS</td>
                         <td>: <?= $c['nis']; ?></td>
                     </tr>

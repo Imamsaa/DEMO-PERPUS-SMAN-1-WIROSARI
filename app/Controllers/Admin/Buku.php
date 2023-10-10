@@ -133,7 +133,7 @@ class Buku extends BaseController
 
         // lalu kita pindah file gambar yang di input ke folder admin/img/buku
         if ($sampul->isvalid() && !$sampul->hasMoved()) {
-            $sampul->move('admin/img/buku',$name);
+            $sampul->move('public/admin/img/buku',$name);
         }
 
         if ($buku['stok'] <= 0 ) {
@@ -272,7 +272,7 @@ class Buku extends BaseController
             if ($this->bukuModel->where('slug',$slug)->countAllResults() > 0) {
                 return redirect()->to(base_url('pustakawan/buku/ubah/'.$slug));   
             }else{
-                unlink('admin/img/buku/'.$buku['sampul']);
+                unlink('public/admin/img/buku/'.$buku['sampul']);
                 return redirect()->to(base_url('pustakawan/buku'));
             }
         }else{
@@ -347,7 +347,7 @@ class Buku extends BaseController
         ];
         
         if ($sampul->isvalid() && !$sampul->hasMoved()) {
-            $sampul->move('admin/img/buku',$name);
+            $sampul->move('public/admin/img/buku',$name);
         }
 
 
@@ -387,7 +387,7 @@ class Buku extends BaseController
                 'message' => 'Buku Berhasil Dihapus'
             ]);
             if ($buku['sampul'] != 'cover_default.png') {        
-                unlink('admin/img/buku/'.$buku['sampul']);
+                unlink('public/admin/img/buku/'.$buku['sampul']);
             }
             return redirect()->to(base_url('pustakawan/buku'));
         }else{

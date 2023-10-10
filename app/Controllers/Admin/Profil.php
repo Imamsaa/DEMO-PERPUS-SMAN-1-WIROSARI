@@ -91,8 +91,8 @@ class Profil extends BaseController
                 
             }else{
                 if ($foto->isvalid() && !$foto->hasMoved()) {
-                    $foto->move('admin/img/pustakawan/',$name);
-                    unlink('admin/img/pustakawan/'.$userlama['foto_user']);
+                    $foto->move('public/admin/img/pustakawan/',$name);
+                    unlink('public/admin/img/pustakawan/'.$userlama['foto_user']);
                 }
             }
             session()->setFlashdata('kotaktime',[

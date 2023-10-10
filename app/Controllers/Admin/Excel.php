@@ -101,7 +101,7 @@ class Excel extends BaseController
                 }
                 $this->kelasModel->save($insertData);
             }
-            unlink('uploads/' . $newName);   
+            unlink('public/uploads/' . $newName);   
             if(is_array($tampil) && count($tampil) > 0)
             {
                 $result = implode(" , ",$tampil);
@@ -337,7 +337,7 @@ class Excel extends BaseController
 
                 $this->rakModel->save($insertData);
             }
-            unlink('uploads/' . $newName);
+            unlink('public/uploads/' . $newName);
             if(is_array($tampil) && count($tampil) > 0)
             {
                 $result = implode(" , ",$tampil);
@@ -436,7 +436,7 @@ class Excel extends BaseController
 
                 $this->jenisModel->save($insertData);
             }
-            unlink('uploads/' . $newName);
+            unlink('public/uploads/' . $newName);
             if(is_array($tampil) && count($tampil) > 0)
             {
                 $result = implode(" , ",$tampil);
@@ -563,7 +563,7 @@ class Excel extends BaseController
                     // $pertambahan++;
                 }
             }
-            unlink('uploads/' . $newName);
+            unlink('public/uploads/' . $newName);
             if(is_array($tampil) && count($tampil) > 0)
             {
                 $result = implode(" , ",$tampil);

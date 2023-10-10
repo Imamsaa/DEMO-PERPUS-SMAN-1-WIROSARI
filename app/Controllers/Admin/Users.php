@@ -124,7 +124,7 @@ class Users extends BaseController
         ]) == true
         ) {
             if ($foto->isvalid() && !$foto->hasMoved()) {
-                $foto->move('admin/img/pustakawan/',$name);
+                $foto->move('public/admin/img/pustakawan/',$name);
             }
             session()->setFlashdata('pojokatas',[
                 'status' => 'success',
@@ -254,8 +254,8 @@ class Users extends BaseController
                 $name = $userlama['foto_user'];
             }else{
                 if ($foto->isvalid() && !$foto->hasMoved()) {
-                    $foto->move('admin/img/pustakawan/',$name);
-                    unlink('admin/img/pustakawan/'.$userlama['foto_user']);
+                    $foto->move('public/admin/img/pustakawan/',$name);
+                    unlink('public/admin/img/pustakawan/'.$userlama['foto_user']);
                 }
             }
             

@@ -38,7 +38,7 @@
                 <div class="row my-2">
                   <div class="col-lg-6">
                     <a href="<?= base_url('pustakawan/kelas/tambah'); ?>" class="btn btn-primary my-1"><i class="fas fa-solid fa-plus"></i> TAMBAHKAN KELAS</a>
-                    <a href="<?= base_url('excel/FORMAT IMPORT KELAS.xlsx'); ?>" class="btn btn-success my-1"><i class="fas fa-solid fa-arrow-down"></i> UNDUH FORMAT IMPORT EXCEL</a>
+                    <a href="<?= base_url('public/excel/FORMAT IMPORT KELAS.xlsx'); ?>" class="btn btn-success my-1"><i class="fas fa-solid fa-arrow-down"></i> UNDUH FORMAT IMPORT EXCEL</a>
                   </div>
                     <div class="col-lg-4">
                     <form action="<?= base_url('pustakawan/excel/kelas'); ?>" method="post" id="excel-kelas" enctype="multipart/form-data" class="d-inline">
