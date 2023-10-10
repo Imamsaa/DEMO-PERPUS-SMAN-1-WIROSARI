@@ -45,7 +45,7 @@
                     <tr>
                         <th><img class="img-thumbnail" src="<?= base_url('public/admin/img/'.$sekolah['logo']); ?>" alt="Logo Sekolah"></th>
                         <th>
-                            <h6 class="my-0 text-center">KARTU ANGGOTA PERPUSTAKAAN <?= $perpus['nama_perpus']; ?></h6>
+                            <h6 class="my-0 text-center">KARTU ANGGOTA PERPUSTAKAAN<br><?= $perpus['nama_perpus']; ?></h6>
                             <p class="sekolah my-0 text-center"><?= $sekolah['nama_sekolah']; ?></p>
                         </th>
                     </tr>
