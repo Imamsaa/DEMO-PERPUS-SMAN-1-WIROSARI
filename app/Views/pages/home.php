@@ -27,7 +27,7 @@ if (session()->getFlashdata('siswa')) {
                     <?php if(session()->getFlashdata('siswa')) : ?>
                     <h1 class="h1-responsive text-center text-white font-weight-bold mb-4">DATA SISWA</h1>
                         <div class="col-md-12">
-                            <img class="img-thumbnail" src="admin/img/siswa/<?= $siswa['foto']; ?>" alt="">
+                            <img class="img-thumbnail" src="public/admin/img/siswa/<?= $siswa['foto']; ?>" alt="">
                         </div>
                         <div class="col-md-12">
                             <table class="table bg-white rounded table-sm table-borderless my-1">
@@ -51,7 +51,7 @@ if (session()->getFlashdata('siswa')) {
                             <?php else : ?>
                         <h1 class="h1-responsive text-white text-center font-weight-bold mb-4">DATA SISWA</h1>
                         <div class="col-md-12">
-                            <img class="img-thumbnail" src="admin/img/siswa/siswa_default.jpg" alt="">
+                            <img class="img-thumbnail" src="public/admin/img/siswa/siswa_default.jpg" alt="">
                         </div>
                         <div class="col-md-12">
                             <table class="table bg-white rounded table-sm table-borderless my-1">
