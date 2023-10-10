@@ -77,15 +77,17 @@
                 </table>
             </div>
             <div class="kartu mx-1">
-                <table class="table mt-1 mb-0 table-borderless">
+                <!-- <table class="table mt-1 mb-0 table-borderless">
                     <tr>
                         <th>
                             <h6 class="mb-0 text-center">KARTU ANGGOTA PERPUSTAKAAN</h6>
-                            <p class="sekolah mb-0 text-center"><?= $sekolah['nama_sekolah']; ?></p>
+                            <p class="sekolah mb-0 text-center"><?php
+                            // $sekolah['nama_sekolah'];
+                             ?></p>
                         </th>
                     </tr>
                 </table>
-                <hr class="my-1">
+                <hr class="my-1"> -->
                 <table class="table mt-1 mb-0 table-borderless">
                     <tr>
                         <td>
