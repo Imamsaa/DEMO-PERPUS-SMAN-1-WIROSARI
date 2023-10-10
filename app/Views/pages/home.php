@@ -3,7 +3,7 @@
 <div class="col-md-7 mt-5 d-md-flex">
     <div class="col-md-6 text-white text-center text-md-left mt-xl-5 mx-auto" >
         <div class="text-center">
-            <img class="mx-auto d-block" src="admin/img/<?= $sekolah['logo']; ?>" width="140px"> 
+            <img class="mx-auto d-block" src="public/admin/img/<?= $sekolah['logo']; ?>" width="140px"> 
         </div>    
         <h1 class="h1-responsive text-center font-weight-bold">SELAMAT DATANG<br><?= $perpus['nama_perpus']; ?><br><?= $sekolah['nama_sekolah']; ?></h1>
         <!-- <hr style="background-color: #ffffff; "> -->
