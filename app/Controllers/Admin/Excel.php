@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers\Admin;
-require 'vendor/autoload.php';
+require 'public/vendor/autoload.php';
 use App\Controllers\BaseController;
 use App\Models\KelasModel;
 use App\Models\SiswaModel;
@@ -298,7 +298,7 @@ class Excel extends BaseController
 
         if ($upload->isValid() && !$upload->hasMoved()) {
             $newName = $upload->getRandomName();
-            $upload->move(ROOTPATH . 'public/uploads', $newName);
+            $upload->move('public/uploads', $newName);
 
             $file_path = ROOTPATH . 'public/uploads/' . $newName;
 
@@ -492,7 +492,7 @@ class Excel extends BaseController
 
         $upload = $this->request->getFile('buku');
 
-        require 'vendor/autoload.php';
+        require 'public/vendor/autoload.php';
         $generator = new \Picqer\Barcode\BarcodeGeneratorHTML();
 
         if ($upload->isValid() && !$upload->hasMoved()) {
