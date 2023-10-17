@@ -115,6 +115,7 @@ $routes->get('/pustakawan/pengembalian/(:any)', 'Admin\Pengembalian::index/$1');
 $routes->post('/pustakawan/pengembalian/update', 'Admin\Pengembalian::update');
 $routes->get('/pustakawan/transaksi', 'Admin\Transaksi::index');
 $routes->post('/pustakawan/transaksi/update', 'Admin\Transaksi::update');
+$routes->post('/pustakawan/transaksi/pdf', 'Admin\Transaksi::pdf');
 $routes->post('/pustakawan/peminjaman/save', 'Admin\Peminjaman::save');
 $routes->DELETE('/pustakawan/peminjaman/delete/(:any)', 'Admin\Peminjaman::delete/$1');
 // $routes->get('/pustakawan/buku/tambah', 'Admin\Buku::tambah');
@@ -139,6 +140,7 @@ $routes->get('/pustakawan/backup', 'Admin\Backup::index');
 // SEKOLAH
 
 $routes->get('/pustakawan/sekolah', 'Admin\Sekolah::index');
+// $routes->get('/pustakawan/sekolah/laporan', 'Admin\Sekolah::laporan');
 $routes->post('/pustakawan/sekolah/update', 'Admin\Sekolah::update');
 
 // PERPUSTAKAAN

@@ -24,10 +24,10 @@ class Laporan extends BaseController
             return redirect()->to(base_url('login'));
         }
 
+        $where = [];
         if ($this->request->getPost()) {
             $req = $this->request->getPost();
             // dd($req);
-            $where = [];
 
             if ($req['status'] != '') {
                 $where['status'] = $req['status'];
@@ -124,7 +124,8 @@ class Laporan extends BaseController
             'sekolah' => $this->sekolah,
             'perpus' => $this->perpus,
             'aku' => $this->aku,
-            'kelas' => $kelas
+            'kelas' => $kelas,
+            'where' => $where
         ];
         return view('admin/laporan/tablelaporan', $data);
     }

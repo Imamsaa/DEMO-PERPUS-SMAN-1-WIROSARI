@@ -87,6 +87,10 @@
                     <input type="email" value="<?= (old('email_sekolah')) ? old('email_sekolah') : $sekolah['email_sekolah']; ?>" name="email_sekolah" class="form-control" id="email_sekolah" placeholder="" required>
                   </div>
                   <div class="form-group">
+                    <label for="kecamatan">Kecamatan</label>
+                    <input type="text" value="<?= (old('kecamatan')) ? old('kecamatan') : $sekolah['kecamatan']; ?>" name="kecamatan" class="form-control" id="email_sekolah" placeholder="" required>
+                  </div>
+                  <div class="form-group">
                     <label for="alamat_sekolah">Alamat Sekolah</label>
                     <textarea name="alamat_sekolah" class="form-control" id="alamat_sekolah" rows="3"><?= (old('alamat_sekolah')) ? old('alamat_sekolah') : $sekolah['alamat_sekolah']; ?></textarea>
                   </div>
