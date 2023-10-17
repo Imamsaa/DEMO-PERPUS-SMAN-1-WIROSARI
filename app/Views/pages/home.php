@@ -3,7 +3,7 @@
 <div class="col-md-7 mt-5 d-md-flex">
     <div class="col-md-6 text-white text-center text-md-left mt-xl-5 mx-auto" >
         <div class="text-center">
-            <img class="mx-auto d-block" src="public/admin/img/<?= $sekolah['logo']; ?>" width="140px"> 
+            <img class="mx-auto d-block" src="<?= base_url('public/admin/img/'.$sekolah['logo']); ?>" width="140px"> 
         </div>    
         <h1 class="h1-responsive text-center font-weight-bold">SELAMAT DATANG<br><?= $perpus['nama_perpus']; ?><br><?= $sekolah['nama_sekolah']; ?></h1>
         <!-- <hr style="background-color: #ffffff; "> -->
@@ -27,7 +27,7 @@ if (session()->getFlashdata('siswa')) {
                     <?php if(session()->getFlashdata('siswa')) : ?>
                     <h1 class="h1-responsive text-center text-white font-weight-bold mb-4">DATA SISWA</h1>
                         <div class="col-md-12">
-                            <img class="img-thumbnail" src="public/admin/img/siswa/<?= $siswa['foto']; ?>" alt="">
+                            <img class="img-thumbnail" src="<?= base_url('public/admin/img/siswa/'.$siswa['foto']); ?>" alt="">
                         </div>
                         <div class="col-md-12">
                             <table class="table bg-white rounded table-sm table-borderless my-1">
@@ -51,7 +51,7 @@ if (session()->getFlashdata('siswa')) {
                             <?php else : ?>
                         <h1 class="h1-responsive text-white text-center font-weight-bold mb-4">DATA SISWA</h1>
                         <div class="col-md-12">
-                            <img class="img-thumbnail" src="public/admin/img/siswa/siswa_default.jpg" alt="">
+                            <img class="img-thumbnail" src="<?= base_url('public/admin/img/siswa/siswa_default.jpg'); ?>" alt="">
                         </div>
                         <div class="col-md-12">
                             <table class="table bg-white rounded table-sm table-borderless my-1">

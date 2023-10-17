@@ -13,7 +13,7 @@
 }
 
 .bg-image {
-  background-image: url("<?= base_url('public/img/'.$sekolah['background']) ?>");
+  background-image: url("<?= base_url('public/img/'.$sekolah['background']);?>");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
