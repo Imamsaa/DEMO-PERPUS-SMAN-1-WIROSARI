@@ -87,12 +87,16 @@ class Sekolah extends BaseController
         
         
         $sekolahbaru = [
-            'nama_sekolah' => $req['nama_sekolah'],
-            'slogan_sekolah' => $req['slogan_sekolah'],
-            'email_sekolah' => $req['email_sekolah'],
-            'alamat_sekolah' => $req['alamat_sekolah'],
-            'logo' => $name,
-            'background' => $bname
+            'nama_sekolah'      => $req['nama_sekolah'],
+            'slogan_sekolah'    => $req['slogan_sekolah'],
+            'email_sekolah'     => $req['email_sekolah'],
+            'alamat_sekolah'    => $req['alamat_sekolah'],
+            'kepsek'            => $req['kepsek'],
+            'nipkepsek'         => $req['nipkepsek'],
+            'ketua'             => $req['ketua'],
+            'nipketua'          => $req['nipketua'],
+            'logo'              => $name,
+            'background'        => $bname
         ];
         
         

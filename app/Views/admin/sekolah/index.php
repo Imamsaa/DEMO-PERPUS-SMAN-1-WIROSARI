@@ -67,6 +67,22 @@
                       <input type="text" value="<?= (old('slogan_sekolah')) ? old('slogan_sekolah') : $sekolah['slogan_sekolah']; ?>" name="slogan_sekolah" class="form-control" id="slogan_sekolah" placeholder="">
                   </div>
                   <div class="form-group">
+                      <label for="kepsek">Nama Kepala Sekolah</label>
+                      <input type="text" value="<?= (old('kepsek')) ? old('kepsek') : $sekolah['kepsek']; ?>" name="kepsek" class="form-control" id="slogan_sekolah" placeholder="">
+                  </div>
+                  <div class="form-group">
+                      <label for="nipkepsek">NIP Kepala Sekolah</label>
+                      <input type="text" value="<?= (old('nipkepsek')) ? old('nipkepsek') : $sekolah['nipkepsek']; ?>" name="nipkepsek" class="form-control" id="slogan_sekolah" placeholder="">
+                  </div>
+                  <div class="form-group">
+                      <label for="ketua">Nama Ketua Perpustakaan</label>
+                      <input type="text" value="<?= (old('ketua')) ? old('ketua') : $sekolah['ketua']; ?>" name="ketua" class="form-control" id="slogan_sekolah" placeholder="">
+                  </div>
+                  <div class="form-group">
+                      <label for="nipketua">NIP Ketua Perpustakaan</label>
+                      <input type="text" value="<?= (old('nipketua')) ? old('nipketua') : $sekolah['nipketua']; ?>" name="nipketua" class="form-control" id="slogan_sekolah" placeholder="">
+                  </div>
+                  <div class="form-group">
                     <label for="email_sekolah">Email Sekolah</label>
                     <input type="email" value="<?= (old('email_sekolah')) ? old('email_sekolah') : $sekolah['email_sekolah']; ?>" name="email_sekolah" class="form-control" id="email_sekolah" placeholder="" required>
                   </div>
