@@ -27,10 +27,10 @@ class Pengunjung extends BaseController
             return redirect()->to(base_url('login'));
         }
 
+        $where = [];
+        $req = $this->request->getPost();
         if ($this->request->getPost()) {
-            $req = $this->request->getPost();
         //     // dd($req);
-            $where = [];
 
         //     if ($req['status'] == 'pinjam') {
         //         if ($req['awal'] != '') {
@@ -144,14 +144,72 @@ class Pengunjung extends BaseController
 
         $kelas = $this->kelasModel->findAll();
 
+        if (isset($req['nama'])) {
+            $nama = $req['nama'];
+        }else{
+            $nama = '';
+        }
+
         $data = [
             'title' => 'Laporan Pengunjung',
             'lap' => $lap,
             'sekolah' => $this->sekolah,
             'perpus' => $this->perpus,
             'aku' => $this->aku,
-            'kelas' => $kelas
+            'kelas' => $kelas,
+            'where' => $where,
+            'nama' => $nama
         ];
         return view('admin/pengunjung/index', $data);
+    }
+
+    public function pdf()
+    {
+        session();
+
+        if (session()->get('login') == null) {
+            return redirect()->to(base_url('login'));
+        }
+
+        $where = $this->request->getvar();
+        
+        if ($where['where'] == '') {
+            $lap = $this->pen
+            ->join('siswa', 'siswa.nis = pengunjung.nis')
+            ->join('kelas', 'kelas.kode_kelas = siswa.kode_kelas')
+            ->findAll();
+            // redirect()->to(base_url('pustakawan/pengunjung'));
+        }else{
+            $setwhere = explode(',',$where['where']);
+            $hasil = 0;
+            while ($hasil < count($setwhere)) {
+                $rewhere[$setwhere[$hasil]] = $setwhere[++$hasil];
+                $hasil++;
+            }
+    
+            if ($where['nama'] != '') {
+                $lap = $this->pen
+                ->where($rewhere)
+                ->like('siswa.nama_siswa',$req['nama'])
+                ->join('siswa', 'siswa.nis = pengunjung.nis')
+                ->join('kelas', 'kelas.kode_kelas = siswa.kode_kelas')
+                ->findAll();
+            }else{
+                $lap = $this->pen
+                ->where($rewhere)
+                ->join('siswa', 'siswa.nis = pengunjung.nis')
+                ->join('kelas', 'kelas.kode_kelas = siswa.kode_kelas')
+                ->findAll();
+            }
+        }
+
+        $data = [
+            'title' => 'Cetak Laporan PDF',
+            'sekolah' => $this->sekolah,
+            'perpus' => $this->perpus,
+            'aku' => $this->aku,
+            'lap' => $lap
+        ];
+        return view('admin/pengunjung/pdf', $data);
     }
 }

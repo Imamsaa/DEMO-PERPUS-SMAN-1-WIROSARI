@@ -45,47 +45,32 @@ date_default_timezone_set('Asia/Jakarta');
             </td>
         </tr>
     </table>
-    <h5>LAPORAN TRANSAKSI PERPUSTAKAAN</h5>
+    <h5>LAPORAN PENGUNJUNG PERPUSTAKAAN</h5>
     </center>
       <table id="example1" class="my-0 table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th>NO</th>
-            <th>NIS</th>
-            <th>NAMA</th>
-            <th>KELAS</th>
-            <th>KODE</th>
-            <th>JUDUL BUKU</th>
-            <th>JENIS BUKU</th>
-            <th>RAK</th>
-            <th>PENERBIT</th>
-            <th>STATUS BUKU</th>
-            <th>TANGGAL PINJAM</th>
-            <th>TANGGAL KEMBALI</th>
-            <th>HARI KETERLAMBATAN</th>
-            <th>DENDA</th>
-          </tr>
-          </thead>
-          <tbody>
-          <?php $no = 1; foreach($lap as $l) :  ?>
-          <tr>
-            <td><?= $no; ?></td>
-            <td><?= $l['nis']; ?></td>
-            <td><?= $l['nama_siswa']; ?></td>
-            <td><?= $l['nama_kelas']; ?></td>
-            <td><?= $l['kode_buku']; ?></td>
-            <td><?= $l['judul_buku']; ?></td>
-            <td><?= $l['nama_jenis']; ?></td>
-            <td><?= $l['nama_rak']; ?></td>
-            <td><?= $l['nama_penerbit']; ?></td>
-            <td><?= $l['status']; ?></td>
-            <td><?= $l['pinjam']; ?></td>
-            <td><?= $l['kembali']; ?></td>
-            <td><?= $l['terlambat'].' HARI'; ?></td>
-            <td><?= $l['denda']; ?></td>
-          </tr>
-          <?php $no++; endforeach; ?>
-        </tbody>
+      <thead>
+                  <tr>
+                    <th>NO</th>
+                    <th>NIS</th>
+                    <th>NISN</th>
+                    <th>NAMA</th>
+                    <th>KELAS</th>
+                    <th>WAKTU</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                      <?php $no = 1; foreach($lap as $l) : ?>
+                        <tr>
+                          <td class="text-center"><?= $no; ?></td>
+                          <td><?= $l['nis']; ?></td>
+                          <td><?= $l['nisn']; ?></td>
+                          <td><?= $l['nama_siswa']; ?></td>
+                          <td><?= $l['nama_kelas']; ?></td>
+                          <td><?= $l['waktu']; ?></td>
+                        </tr>
+                        <?php $no++; endforeach; ?>
+                  </tbody>
+                </table>
       </table>
       <table class="table my-4 table-borderless">
           <tr>

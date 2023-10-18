@@ -2,6 +2,18 @@
  <!-- Content Wrapper. Contains page content -->
  <?= $this->section('content'); ?>
 <!-- Content Wrapper. Contains page content -->
+<?php 
+function mapped_implode($glue, $array, $symbol = ',') {
+  return implode($glue, array_map(
+          function($k, $v) use($symbol) { 
+              return $k.$symbol.$v;
+          }, 
+          array_keys($array), 
+          array_values($array)
+          )
+      );
+}
+?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -29,6 +41,7 @@
             <div class="card border-success my-3" style="">
               <div class="card-body">
                 <h3>Laporan Berdasarkan</h3>
+                
                 <form action="<?= base_url('pustakawan/pengunjung'); ?>" method="post" class="form-inline">
                   <label for="awal">Dari :</label>
                   <input type="date" class="form-control my-1 mx-2" name="awal" id="awal">
@@ -60,7 +73,12 @@
                     <!-- <a href="" class="btn save btn-primary my-1"><i class="fas fa-solid fa-arrow-right"></i> RESET LAPORAN</a> -->
                     <!-- <button type="button" class="btn btn-success my-1"><i class="fas fa-solid fa-arrow-down"></i> UNDUH EXCEL</button>
                     <button type="button" class="btn btn-success my-1"><i class="fas fa-solid fa-arrow-up"></i> IMPORT DATA DENDA</button> -->
-                </div>
+                    <form target="_blank" action="<?= base_url('pustakawan/pengunjung/pdf'); ?>" method="post" class="d-inline">
+                      <input type="hidden" name="where" value="<?= mapped_implode(',',$where); ?>">
+                      <input type="hidden" name="nama" value="<?= $nama; ?>">
+                      <button type="submit" class="btn btn-primary my-1">LAPORAN PDF</button>
+                    </form>
+                  </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
