@@ -79,7 +79,7 @@ function mapped_implode($glue, $array, $symbol = ',') {
                       <input type="hidden" name="where" value="<?= mapped_implode(',',$where); ?>">
                       <button type="submit" class="btn btn-primary my-1">LAPORAN PDF</button>
                     </form>
-                    <form target="_blank" action="<?= base_url('pustakawan/transaksi/excel'); ?>" method="post" class="d-inline">
+                    <form action="<?= base_url('pustakawan/transaksi/excel'); ?>" method="post" class="d-inline">
                       <input type="hidden" name="where" value="<?= mapped_implode(',',$where); ?>">
                       <button type="submit" class="btn btn-primary my-1">LAPORAN EXCEL</button>
                     </form>

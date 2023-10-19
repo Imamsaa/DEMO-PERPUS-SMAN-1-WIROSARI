@@ -177,12 +177,12 @@ class Transaksi extends BaseController
         $sekolah = $this->sekolah;
         $perpus = $this->perpusModel->first();
     // Tambahkan baris pertama dan gabungkan 6 kolom untuk judul
-    $worksheet->mergeCells('A1:F1');
+    $worksheet->mergeCells('A1:M1');
     $titleCell1 = $worksheet->getCell('A1');
     $date = $user['nama_user'].'/'.DATE('d/m/Y');
     $titleCell1->setValue("$date");
 
-    $worksheet->mergeCells('A2:F2');
+    $worksheet->mergeCells('A2:M2');
     $titleCell = $worksheet->getCell('A2');
     $titleCell->setValue('PERPUSTAKAAN '.$perpus['nama_perpus']);
     
@@ -193,7 +193,7 @@ class Transaksi extends BaseController
     // Mengatur tinggi baris agar sesuai dengan konten judul
     $worksheet->getRowDimension(1)->setRowHeight(20); 
     
-    $worksheet->mergeCells('A3:F3');
+    $worksheet->mergeCells('A3:M3');
     $titleCell2 = $worksheet->getCell('A3');
     $titleCell2->setValue($sekolah['nama_sekolah']);
 
@@ -204,16 +204,16 @@ class Transaksi extends BaseController
     // Mengatur tinggi baris agar sesuai dengan konten judul
     $worksheet->getRowDimension(2)->setRowHeight(20);
     // Sesuaikan tinggi sesuai kebutuhan
-    $worksheet->mergeCells('A4:F4');
+    $worksheet->mergeCells('A4:M4');
     // Header tabel
-    $header = ['NO', 'NIS', 'NISN', 'NAMA SISWA', 'KELAS', 'WAKTU'];
+    $header = ['NO', 'NIS', 'NAMA SISWA', 'KELAS', 'KODE','JUDUL BUKU','RAK','PENERBIT','STATUS BUKU','TANGGAL PINJAM','TANGGAK KEMBALI','KETERLAMBATAN','DENDA'];
     $worksheet->fromArray($header, null, 'A5');
     
     // Mengatur data yang ingin ditampilkan
     $dataToDisplay = [];
     $no = 1;
     foreach ($lap as $item) {
-        $dataToDisplay[] = [$no, $item['nis'], $item['nisn'], $item['nama_siswa'], $item['nama_kelas'], $item['waktu']];
+        $dataToDisplay[] = [$no, $item['nis'], $item['nama_siswa'], $item['nama_kelas'], $item['kode_buku'], $item['judul_buku'], $item['nama_rak'], $item['nama_penerbit'], $item['status'], $item['pinjam'], $item['kembali'], $item['terlambat'], $item['denda']];
         $no++;
     }
     
@@ -231,7 +231,14 @@ class Transaksi extends BaseController
     $worksheet->getColumnDimension('D')->setWidth(30); // Sesuaikan lebar sesuai kebutuhan
     $worksheet->getColumnDimension('E')->setWidth(15); // Sesuaikan lebar sesuai kebutuhan
     $worksheet->getColumnDimension('F')->setWidth(15); // Sesuaikan lebar sesuai kebutuhan
-    
+    $worksheet->getColumnDimension('G')->setWidth(15);
+    $worksheet->getColumnDimension('H')->setWidth(15);
+    $worksheet->getColumnDimension('I')->setWidth(15);
+    $worksheet->getColumnDimension('J')->setWidth(15);
+    $worksheet->getColumnDimension('K')->setWidth(15);
+    $worksheet->getColumnDimension('L')->setWidth(15);
+    $worksheet->getColumnDimension('M')->setWidth(15);
+
     $highestRow = $worksheet->getHighestRow();
     $highestColumn = $worksheet->getHighestColumn();
     $cellRange = 'A5:' . $highestColumn . $highestRow;
@@ -256,47 +263,47 @@ class Transaksi extends BaseController
     // Tanda tangan Kepala Sekolah
 
     $row += 1;
-    $worksheet->mergeCells('D' . $row . ':F' . $row);
-    $worksheet->setCellValue('D' . $row, $sekolah['kecamatan'].", ".DATE('d-m-Y'));
-    $worksheet->getStyle('D' . $row)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+    $worksheet->mergeCells('G' . $row . ':M' . $row);
+    $worksheet->setCellValue('G' . $row, $sekolah['kecamatan'].", ".DATE('d-m-Y'));
+    $worksheet->getStyle('G' . $row)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
     $row += 1;
-    $worksheet->mergeCells('A' . $row . ':C' . $row);
+    $worksheet->mergeCells('A' . $row . ':F' . $row);
     $worksheet->setCellValue('A' . $row, 'Mengetahui');
     $worksheet->getStyle('A' . $row)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
 
     // Tanda tangan Ketua Perpustakaan
-    $worksheet->mergeCells('D' . $row . ':F' . $row);
-    $worksheet->setCellValue('D' . $row, 'Kepala Perpustakaan');
-    $worksheet->getStyle('D' . $row)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+    $worksheet->mergeCells('G' . $row . ':M' . $row);
+    $worksheet->setCellValue('G' . $row, 'Kepala Perpustakaan');
+    $worksheet->getStyle('G' . $row)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
     $row += 1;
-    $worksheet->mergeCells('A' . $row . ':C' . $row);
+    $worksheet->mergeCells('A' . $row . ':F' . $row);
     $worksheet->setCellValue('A' . $row, 'Kepala Sekolah');
     $worksheet->getStyle('A' . $row)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
     $row += 5;
-    $worksheet->mergeCells('A' . $row . ':C' . $row);
+    $worksheet->mergeCells('A' . $row . ':F' . $row);
     $worksheet->setCellValue('A' . $row, $sekolah['kepsek']);
     $worksheet->getStyle('A' . $row)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
 
     // Tanda tangan Ketua Perpustakaan
-    $worksheet->mergeCells('D' . $row . ':F' . $row);
-    $worksheet->setCellValue('D' . $row, $sekolah['ketua']);
-    $worksheet->getStyle('D' . $row)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+    $worksheet->mergeCells('G' . $row . ':M' . $row);
+    $worksheet->setCellValue('G' . $row, $sekolah['ketua']);
+    $worksheet->getStyle('G' . $row)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
     $row += 1;
-    $worksheet->mergeCells('A' . $row . ':C' . $row);
+    $worksheet->mergeCells('A' . $row . ':F' . $row);
     $worksheet->setCellValue('A' . $row, "NIP : ".$sekolah['nipkepsek']);
     $worksheet->getStyle('A' . $row)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
 
     // Tanda tangan Ketua Perpustakaan
-    $worksheet->mergeCells('D' . $row . ':F' . $row);
-    $worksheet->setCellValue('D' . $row, "NIP : ".$sekolah['nipketua']);
-    $worksheet->getStyle('D' . $row)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+    $worksheet->mergeCells('G' . $row . ':M' . $row);
+    $worksheet->setCellValue('G' . $row, "NIP : ".$sekolah['nipketua']);
+    $worksheet->getStyle('G' . $row)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
     // Outputkan file Excel ke browser
     $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
