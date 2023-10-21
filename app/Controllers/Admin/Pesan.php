@@ -133,49 +133,52 @@ class Pesan extends BaseController
         $wa = $this->whastappModel->first();
         $message = urlencode($this->setpesan($nis, $wa['selector'],$wa['message']));
 
+        $url = "https://wa.me/{$siswa['wa']}?text=$message";
+        header("Location: $url");
+        exit;
         // BUAT CURL
-        $fp = @fsockopen('www.google.com', 80, $errno, $errstr, 30);
-        if (!$fp) {
-            session()->setFlashdata('kotakok',[
-                'status' => 'warning',
-                'title' => 'Gagal',
-                'message' => 'Untuk Mengirim Pesan Diperlukan Koneksi Internet Coba Cek Kembali Koneksi Internet Anda'
-            ]);
-            return redirect()->to(base_url('pustakawan/kirimpesan'));
-        }
+        // $fp = @fsockopen('www.google.com', 80, $errno, $errstr, 30);
+        // if (!$fp) {
+        //     session()->setFlashdata('kotakok',[
+        //         'status' => 'warning',
+        //         'title' => 'Gagal',
+        //         'message' => 'Untuk Mengirim Pesan Diperlukan Koneksi Internet Coba Cek Kembali Koneksi Internet Anda'
+        //     ]);
+        //     return redirect()->to(base_url('pustakawan/kirimpesan'));
+        // }
 
-        $url = $wa['endpoint'].'?api_key='.$wa['apikey']."&sender=".$wa['pengirim']."&number=".$siswa['wa']."&message=".$message;
+        // $url = $wa['endpoint'].'?api_key='.$wa['apikey']."&sender=".$wa['pengirim']."&number=".$siswa['wa']."&message=".$message;
         
-        $handle = curl_init($url);
-        curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
+        // $handle = curl_init($url);
+        // curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
 
-        /* Get the HTML or whatever is linked in $url. */
-        $response = curl_exec($handle);
+        // /* Get the HTML or whatever is linked in $url. */
+        // $response = curl_exec($handle);
 
-        /* Check for 404 (file not found). */
-        $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-        if($httpCode == 400) {
-            session()->setFlashdata('kotakok',[
-                'status' => 'warning',
-                'title' => 'Gagal',
-                'message' => 'Terdapat Kesalahan Pada Konfigurasi Pesan WhastApp Anda Coba Cek Kembali Konfigurasi dan Pastikan Nomor Penerima Aktif'
-            ]);
-            return redirect()->to(base_url('pustakawan/kirimpesan'));
-        }elseif($httpCode == 200){
-            session()->setFlashdata('kotaktime',[
-                'status' => 'success',
-                'title' => 'Terkirim',
-                'message' => 'Pesan WhastApp Berhasil Terkirim'
-            ]);
-            return redirect()->to(base_url('pustakawan/kirimpesan'));
-        }else{
-            session()->setFlashdata('pojokatas',[
-                'status' => 'error',
-                'message' => 'Pesan WhastApp Gagal Terkirim'
-            ]);
-            return redirect()->to(base_url('pustakawan/kirimpesan'));
-        }
-        curl_close($handle);
+        // /* Check for 404 (file not found). */
+        // $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+        // if($httpCode == 400) {
+        //     session()->setFlashdata('kotakok',[
+        //         'status' => 'warning',
+        //         'title' => 'Gagal',
+        //         'message' => 'Terdapat Kesalahan Pada Konfigurasi Pesan WhastApp Anda Coba Cek Kembali Konfigurasi dan Pastikan Nomor Penerima Aktif'
+        //     ]);
+        //     return redirect()->to(base_url('pustakawan/kirimpesan'));
+        // }elseif($httpCode == 200){
+        //     session()->setFlashdata('kotaktime',[
+        //         'status' => 'success',
+        //         'title' => 'Terkirim',
+        //         'message' => 'Pesan WhastApp Berhasil Terkirim'
+        //     ]);
+        //     return redirect()->to(base_url('pustakawan/kirimpesan'));
+        // }else{
+        //     session()->setFlashdata('pojokatas',[
+        //         'status' => 'error',
+        //         'message' => 'Pesan WhastApp Gagal Terkirim'
+        //     ]);
+        //     return redirect()->to(base_url('pustakawan/kirimpesan'));
+        // }
+        // curl_close($handle);
     }
 
     function email($nis)

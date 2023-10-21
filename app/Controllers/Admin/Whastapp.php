@@ -42,10 +42,7 @@ class WhastApp extends BaseController
     {
         $w = $this->request->getvar();
         if ($this->whastappModel->where('id', 1)->set([
-            'endpoint' => $w['endpoint'],
-            'pengirim'  => $w['pengirim'],
             'message'   => $w['message'],
-            'apikey'    => $w['apikey'],
             'selector' => $w['selector']
         ])->update() == true
         ) {

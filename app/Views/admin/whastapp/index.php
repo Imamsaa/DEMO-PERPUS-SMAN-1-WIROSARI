@@ -25,13 +25,13 @@
     <section class="content">
       <div class="container-fluid">
       <div class="row">
-          <div class="col-lg-12">
+          <!-- <div class="col-lg-12">
             <div class="card border-success my-3" style="">
               <div class="card-body">
                 <p class="card-text">Untuk Mendapatkan <span class="text-danger font-weight-bold">APIKEY</span> dan link <span class="text-danger font-weight-bold">ENDPOINT</span> server Gateway WhastApp silahkan untuk mendaftar pada <a href="https://watsap.id/">https://watsap.id</a></p>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <!-- ROW -->
         <div class="row">
@@ -48,18 +48,18 @@
               <form action="<?= base_url('pustakawan/whastapp/save'); ?>" method="POST">
               <?= csrf_field(); ?>
                 <div class="card-body">
-                <div class="form-group">
+                <!-- <div class="form-group">
                       <label for="apikey">APIKEY Gateway WhastApp</label>
-                      <input type="text" value="<?= (old('apikey')) ? old('apikey') : $whastapp['apikey']; ?>" name="apikey" class="form-control" id="apikey" placeholder="">
+                      <input type="text" value="" name="apikey" class="form-control" id="apikey" placeholder="">
                   </div>
                   <div class="form-group">
                       <label for="endpoint">Link Endpoint</label>
-                      <input type="text" value="<?= (old('endpoint')) ? old('endpoint') : $whastapp['endpoint']; ?>" name="endpoint" class="form-control" id="endpoint" placeholder="">
+                      <input type="text" value="" name="endpoint" class="form-control" id="endpoint" placeholder="">
                   </div>
                   <div class="form-group">
                       <label for="pengirim">Nomor Pengirim</label>
-                      <input type="text" value="<?= (old('pengirim')) ? old('pengirim') : $whastapp['pengirim']; ?>" name="pengirim" class="form-control" id="pengirim" placeholder="">
-                  </div>
+                      <input type="text" value="" name="pengirim" class="form-control" id="pengirim" placeholder="">
+                  </div> -->
                   <div class="form-group">
                       <label for="selector">Selector Pesan</label>
                       <select id="selector" name="selector" class="form-control">
