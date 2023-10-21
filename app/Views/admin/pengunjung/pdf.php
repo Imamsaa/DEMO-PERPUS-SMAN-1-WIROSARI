@@ -14,7 +14,7 @@ date_default_timezone_set('Asia/Jakarta');
       font-size: 12px;
     }
     #example1 td,#example1 th, #example1 tr{
-      border : 1px solid black;
+      border : 2px solid black;
     }
     th{
       text-align: center;
@@ -28,6 +28,9 @@ date_default_timezone_set('Asia/Jakarta');
     .kop td{
       padding : 10px 30px;
       margin : auto;
+    }
+    .content{
+      break-inside: avoid;
     }
     </style>
 </head>
@@ -72,6 +75,33 @@ date_default_timezone_set('Asia/Jakarta');
                   </tbody>
                 </table>
       </table>
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- LINE CHART -->
+              <!-- /.card -->
+
+              <!-- BAR CHART -->
+              <div class="card my-3">
+                <div class="card-body">
+                  <div class="chart">
+                    <canvas id="barChart"
+                      style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+
+            </div>
+            <!-- /.col (RIGHT) -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
       <table class="table my-4 table-borderless">
           <tr>
               <td>
@@ -91,6 +121,74 @@ date_default_timezone_set('Asia/Jakarta');
           </tr>
       </table>
     </section>
+    <!-- jQuery -->
+  <script src="<?= base_url('public/admin/plugins/jquery/jquery.min.js'); ?>"></script>
+  <!-- Bootstrap 4 -->
+  <script src="<?= base_url('public/admin/plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+  <!-- ChartJS -->
+  <script src="<?= base_url('public/admin/plugins/chart.js/Chart.min.js'); ?>"></script>
+    <script>
+    $(function () {
+      /* ChartJS
+       * -------
+       * Here we will create a few charts using ChartJS
+       */
+
+      //--------------
+      //- AREA CHART -
+      //--------------
+
+      var areaChartData = {
+        labels: [<?php echo implode(',', $bulan); ?>],
+        datasets: [
+          {
+            label: 'Kunjungan',
+            backgroundColor: 'rgba(60,141,188,0.9)',
+            borderColor: 'rgba(60,141,188,0.8)',
+            pointRadius: false,
+            pointColor: '#3b8bba',
+            pointStrokeColor: 'rgba(60,141,188,1)',
+            pointHighlightFill: '#fff',
+            pointHighlightStroke: 'rgba(60,141,188,1)',
+            data: [<?php echo implode(',',$kunjungan); ?>]
+          }
+        ]
+      }
+
+
+      //-------------
+      //- BAR CHART -
+      //-------------
+      var barChartCanvas = $('#barChart').get(0).getContext('2d')
+      var barChartData = $.extend(true, {}, areaChartData)
+      var temp0 = areaChartData.datasets[0]
+      // var temp1 = areaChartData.datasets[1]
+      barChartData.datasets[0] = temp0
+      // barChartData.datasets[1] = temp1
+
+      var barChartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        datasetFill: false,
+        scales: {
+          yAxes: [{
+              display: true,
+              ticks: {
+                  suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                  // OR //
+                  beginAtZero: true   // minimum value will be 0.
+              }
+          }]
+        }
+      }
+
+      new Chart(barChartCanvas, {
+        type: 'bar',
+        data: barChartData,
+        options: barChartOptions
+      })
+    })
+  </script>
 </body>
 </html>
 <script>
