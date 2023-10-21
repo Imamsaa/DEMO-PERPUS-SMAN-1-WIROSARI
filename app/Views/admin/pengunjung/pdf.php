@@ -192,6 +192,6 @@ date_default_timezone_set('Asia/Jakarta');
 </body>
 </html>
 <script>
-    setTimeout(function () { window.print(); }, 500);
+    setTimeout(function () { window.print(); }, 2000);
     window.onfocus = function () { setTimeout(function () { window.close(); }, 500); }
 </script>
