@@ -72,7 +72,7 @@
                         <td><?= $p['denda']; ?></td>
                         <td>
                           <a href="<?= base_url('pustakawan/kirimpesan/email/'.$p['nis']); ?>" class="btn save btn-sm btn-danger"><i class="fas fa-solid fa-envelope"></i></a>
-                          <a href="<?= base_url('pustakawan/kirimpesan/whastapp/'.$p['nis']); ?>" href="" class="btn save btn-sm btn-success"><i class="fab fa-whatsapp"></i></a>
+                          <a target="_blank" href="<?= base_url('pustakawan/kirimpesan/whastapp/'.$p['nis']); ?>" href="" class="btn btn-sm btn-success"><i class="fab fa-whatsapp"></i></a>
                         </td>
                       </tr>
                     <?php $no++; endforeach; ?>
