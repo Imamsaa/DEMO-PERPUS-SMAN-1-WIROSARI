@@ -146,4 +146,24 @@ class Rak extends BaseController
             return redirect()->to(base_url('pustakawan/rak'));
         }
     }
+
+    public function delAll()
+    {
+        $this->rakModel->disableForeignKeyChecks();
+        if ($this->rakModel->emptyTable()) {
+            session()->setFlashdata('kotakok',[
+                'status' => 'success',
+                'title' => 'Berhasil',
+                'message' => 'Seluruh data berhasil dihapus'
+            ]);
+            return redirect()->to(base_url('pustakawan/rak'));
+        }else{
+            session()->setFlashdata('kotakok',[
+                'status' => 'error',
+                'title' => 'Gagal',
+                'message' => 'Data gagal dihapus'
+            ]);
+            return redirect()->to(base_url('pustakawan/rak'));
+        }
+    }
 }

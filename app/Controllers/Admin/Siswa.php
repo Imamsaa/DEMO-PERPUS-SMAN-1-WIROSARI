@@ -287,4 +287,24 @@ class Siswa extends BaseController
             return redirect()->to(base_url('pustakawan/siswa'));
         }
     }
+
+    public function delAll()
+    {
+        $this->siswaModel->disableForeignKeyChecks();
+        if ($this->siswaModel->emptyTable()) {
+            session()->setFlashdata('kotakok',[
+                'status' => 'success',
+                'title' => 'Berhasil',
+                'message' => 'Seluruh data berhasil dihapus'
+            ]);
+            return redirect()->to(base_url('pustakawan/siswa'));
+        }else{
+            session()->setFlashdata('kotakok',[
+                'status' => 'error',
+                'title' => 'Gagal',
+                'message' => 'Data gagal dihapus'
+            ]);
+            return redirect()->to(base_url('pustakawan/siswa'));
+        }
+    }
 }

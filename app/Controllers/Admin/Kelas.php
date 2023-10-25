@@ -145,4 +145,24 @@ class Kelas extends BaseController
         }
     }
 
+    public function delAll()
+    {
+        $this->kelasModel->disableForeignKeyChecks();
+        if ($this->kelasModel->emptyTable()) {
+            session()->setFlashdata('kotakok',[
+                'status' => 'success',
+                'title' => 'Berhasil',
+                'message' => 'Seluruh data berhasil dihapus'
+            ]);
+            return redirect()->to(base_url('pustakawan/kelas'));
+        }else{
+            session()->setFlashdata('kotakok',[
+                'status' => 'error',
+                'title' => 'Gagal',
+                'message' => 'Data gagal dihapus'
+            ]);
+            return redirect()->to(base_url('pustakawan/kelas'));
+        }
+    }
+
 }

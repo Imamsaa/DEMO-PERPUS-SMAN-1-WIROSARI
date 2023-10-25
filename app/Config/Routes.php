@@ -25,6 +25,7 @@ $routes->get('/pustakawan', 'Admin\Dashboard::index');
 // KELAS
 
 $routes->get('/pustakawan/kelas', 'Admin\Kelas::index');
+$routes->get('/pustakawan/kelas/delall', 'Admin\Kelas::delAll');
 $routes->get('/pustakawan/kelas/tambah', 'Admin\Kelas::tambah');
 $routes->get('/pustakawan/kelas/ubah/(:any)', 'Admin\Kelas::ubah/$1');
 $routes->post('/pustakawan/kelas/save', 'Admin\Kelas::save');
@@ -34,6 +35,7 @@ $routes->DELETE('/pustakawan/kelas/delete/(:any)', 'Admin\Kelas::delete/$1');
 // SISWA
 
 $routes->get('/pustakawan/siswa', 'Admin\Siswa::index');
+$routes->get('/pustakawan/siswa/delall', 'Admin\Siswa::delAll');
 $routes->get('/pustakawan/siswa/tambah', 'Admin\Siswa::tambah');
 $routes->get('/pustakawan/siswa/ubah/(:any)', 'Admin\Siswa::ubah/$1');
 $routes->post('/pustakawan/siswa/save', 'Admin\Siswa::save');
@@ -81,6 +83,7 @@ $routes->DELETE('/pustakawan/penerbit/delete/(:any)', 'Admin\Penerbit::delete/$1
 // Rak Buku
 
 $routes->get('/pustakawan/rak', 'Admin\Rak::index');
+$routes->get('/pustakawan/rak/delall', 'Admin\Rak::delAll');
 $routes->get('/pustakawan/rak/tambah', 'Admin\Rak::tambah');
 $routes->get('/pustakawan/rak/ubah/(:any)', 'Admin\Rak::ubah/$1');
 $routes->post('/pustakawan/rak/save', 'Admin\Rak::save');
@@ -90,6 +93,7 @@ $routes->DELETE('/pustakawan/rak/delete/(:any)', 'Admin\Rak::delete/$1');
 // Jenis Buku
 
 $routes->get('/pustakawan/jenis', 'Admin\Jenis::index');
+$routes->get('/pustakawan/jenis/delall', 'Admin\Jenis::delAll');
 $routes->get('/pustakawan/jenis/tambah', 'Admin\Jenis::tambah');
 $routes->get('/pustakawan/jenis/ubah/(:any)', 'Admin\Jenis::ubah/$1');
 $routes->post('/pustakawan/jenis/save', 'Admin\Jenis::save');
@@ -99,6 +103,7 @@ $routes->DELETE('/pustakawan/jenis/delete/(:any)', 'Admin\Jenis::delete/$1');
 // Buku
 
 $routes->get('/pustakawan/buku', 'Admin\Buku::index');
+$routes->get('/pustakawan/buku/delall', 'Admin\Buku::delAll');
 $routes->get('/pustakawan/buku/tambah', 'Admin\Buku::tambah');
 $routes->get('/pustakawan/buku/ubah/(:any)', 'Admin\Buku::ubah/$1');
 $routes->post('/pustakawan/buku/save', 'Admin\Buku::save');

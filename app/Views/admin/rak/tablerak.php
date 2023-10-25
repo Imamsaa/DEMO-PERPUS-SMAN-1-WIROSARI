@@ -38,7 +38,8 @@
                   <div class="row my-2">
                     <div class="col-lg-6">
                       <a href="<?= base_url('pustakawan/rak/tambah'); ?>" class="btn btn-primary my-1"><i class="fas fa-solid fa-plus"></i> TAMBAHKAN RAK BUKU</a>
-                      <a href="<?= base_url('public/excel/FORMAT IMPOR RAK.xlsx'); ?>" class="btn btn-success my-1"><i class="fas fa-solid fa-arrow-down"></i> UNDUH FORMAT RAK EXCEL</a>
+                      <a href="<?= base_url('pustakawan/rak/delall'); ?>" class="btn delete-link btn-danger my-1"><i class="fas fa-solid fa-trash"></i> HAPUS SEMUA</a>
+                      <a href="<?= base_url('public/excel/FORMAT IMPOR RAK.xlsx'); ?>" class="btn btn-success my-1"><i class="fas fa-solid fa-arrow-down"></i> FORMAT EXCEL</a>
                     </div>
                     <div class="col-lg-4">
                       <form action="<?= base_url('pustakawan/excel/rak'); ?>" method="post" id="excel-rak" enctype="multipart/form-data" class="d-inline">

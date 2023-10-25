@@ -464,4 +464,24 @@ class Buku extends BaseController
             return redirect()->to(base_url('pustakawan/buku/ubah/'.$req['slug']));
         }
     }
+
+    public function delAll()
+    {
+        $this->bukuModel->disableForeignKeyChecks();
+        if ($this->bukuModel->emptyTable()) {
+            session()->setFlashdata('kotakok',[
+                'status' => 'success',
+                'title' => 'Berhasil',
+                'message' => 'Seluruh data berhasil dihapus'
+            ]);
+            return redirect()->to(base_url('pustakawan/buku'));
+        }else{
+            session()->setFlashdata('kotakok',[
+                'status' => 'error',
+                'title' => 'Gagal',
+                'message' => 'Data gagal dihapus'
+            ]);
+            return redirect()->to(base_url('pustakawan/buku'));
+        }
+    }
 }

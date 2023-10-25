@@ -149,4 +149,24 @@ class Jenis extends BaseController
             return redirect()->to(base_url('pustakawan/jenis'));
         }
     }
+
+    public function delAll()
+    {
+        $this->jenisModel->disableForeignKeyChecks();
+        if ($this->jenisModel->emptyTable()) {
+            session()->setFlashdata('kotakok',[
+                'status' => 'success',
+                'title' => 'Berhasil',
+                'message' => 'Seluruh data berhasil dihapus'
+            ]);
+            return redirect()->to(base_url('pustakawan/jenis'));
+        }else{
+            session()->setFlashdata('kotakok',[
+                'status' => 'error',
+                'title' => 'Gagal',
+                'message' => 'Data gagal dihapus'
+            ]);
+            return redirect()->to(base_url('pustakawan/jenis'));
+        }
+    }
 }

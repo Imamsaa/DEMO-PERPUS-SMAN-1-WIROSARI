@@ -38,6 +38,7 @@
                   <div class="row my-2">
                     <div class="col-lg-6">
                     <a href="<?= base_url('pustakawan/buku/tambah'); ?>" class="btn btn-primary my-1"><i class="fas fa-solid fa-plus"></i> TAMBAHKAN BUKU</a>
+                    <a href="<?= base_url('pustakawan/buku/delall'); ?>" class="btn btn-danger delete-link my-1"><i class="fas fa-solid fa-trash"></i> HAPUS SEMUA</a>
                     <a href="<?= base_url('public/excel/FORMAT IMPORT BUKU.xlsx'); ?>" class="btn btn-success my-1"><i class="fas fa-solid fa-arrow-down"></i> UNDUH EXCEL</a>
                   </div>
                     <div class="col-lg-4">
